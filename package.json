@@ -1,6 +1,6 @@
 {
   "name": "@prifilabs/auth-oracle-ethereum-js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Multi-factor authentication for Ethereum applications",
   "main": "lib/index.js",
   "scripts": {
