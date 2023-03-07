@@ -48,12 +48,12 @@ function checkFactor(factors:string[], factor:string){
     }
 }
 
-interface CheckRequestConfig {
+export interface CheckRequestConfig {
     validateHandle: (handle:string) => boolean;
     factors: string[];
 }
 
-interface Request{
+export interface Request{
     sender:string;
     factor:string;
     handle:string;
@@ -77,13 +77,13 @@ export async function checkRequest(config:CheckRequestConfig, request:Request){
     return res;
 }
 
-interface CheckCredentialsConfig {
+export interface CheckCredentialsConfig {
     factors: string[];
     isValid: (address:string) => boolean;
     isRevoked: (address:string) => number;
 }
 
-interface Credentials {
+export interface Credentials {
     sender:string;
     signer: string;
     factor:string;
