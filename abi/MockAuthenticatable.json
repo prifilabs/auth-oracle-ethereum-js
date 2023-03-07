@@ -1,0 +1,261 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "contract AuthOracle",
+        "name": "_auth",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "reason",
+        "type": "string"
+      }
+    ],
+    "name": "InvalidCredentials",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "auth",
+    "outputs": [
+      {
+        "internalType": "contract AuthOracle",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "sender",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "signer",
+            "type": "address"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "token",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "factor",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "uint256",
+            "name": "timestamp",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bytes",
+            "name": "signature",
+            "type": "bytes"
+          }
+        ],
+        "internalType": "struct Credentials",
+        "name": "credentials",
+        "type": "tuple"
+      }
+    ],
+    "name": "checkCredentialsTest",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "sender",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "signer",
+            "type": "address"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "token",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "factor",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "uint256",
+            "name": "timestamp",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bytes",
+            "name": "signature",
+            "type": "bytes"
+          }
+        ],
+        "internalType": "struct Credentials",
+        "name": "credentials",
+        "type": "tuple"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "factor",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint256",
+        "name": "freshness",
+        "type": "uint256"
+      }
+    ],
+    "name": "checkCredentialsWithFactorAndFreshnessTest",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "sender",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "signer",
+            "type": "address"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "token",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "factor",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "uint256",
+            "name": "timestamp",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bytes",
+            "name": "signature",
+            "type": "bytes"
+          }
+        ],
+        "internalType": "struct Credentials",
+        "name": "credentials",
+        "type": "tuple"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "factor",
+        "type": "bytes32"
+      }
+    ],
+    "name": "checkCredentialsWithFactorTest",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "sender",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "signer",
+            "type": "address"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "token",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "factor",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "uint256",
+            "name": "timestamp",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bytes",
+            "name": "signature",
+            "type": "bytes"
+          }
+        ],
+        "internalType": "struct Credentials",
+        "name": "credentials",
+        "type": "tuple"
+      },
+      {
+        "internalType": "uint256",
+        "name": "freshness",
+        "type": "uint256"
+      }
+    ],
+    "name": "checkCredentialsWithFreshnessTest",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

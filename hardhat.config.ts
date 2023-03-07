@@ -3,6 +3,8 @@ import "@nomicfoundation/hardhat-toolbox";
 
 import 'solidity-coverage';
 
+import 'hardhat-abi-exporter';
+
 import * as dotenv from 'dotenv';
 dotenv.config();
 
@@ -18,6 +20,13 @@ const config: HardhatUserConfig = {
         },
       },
     },
+  },
+  abiExporter: {
+      path: './abi',
+      format: "json",
+      runOnCompile: true,
+      clear: true,
+      flat: true,
   },
   networks: {
       goerli: {
