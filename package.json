@@ -1,0 +1,32 @@
+{
+  "name": "@prifilabs/auth-oracle-ethereum-js",
+  "version": "1.0.0",
+  "description": "Multi-factor authentication for Ethereum applications",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prifilabs/auth-oracle-ethereum-js.git"
+  },
+  "author": "Thierry Sans",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prifilabs/auth-oracle-ethereum-js/issues"
+  },
+  "homepage": "https://github.com/prifilabs/auth-oracle-ethereum-js#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "@types/node": "^18.14.6",
+    "dotenv": "^16.0.3",
+    "hardhat": "^2.13.0",
+    "solidity-coverage": "^0.8.2",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.8.2",
+    "ethers": "^5.7.2"
+  }
+}

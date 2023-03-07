@@ -1,0 +1,23 @@
+import { ethers } from "hardhat";
+
+import publicConfig from "../../auth-oracle-ethereum-backend/src/config/public.json" assert { type: "json" };
+import privateConfig from "../../auth-oracle-ethereum-backend/src/config/private.json" assert { type: "json" };
+
+async function main() {
+    
+    const network = process.env.HARDHAT_NETWORK;
+
+    const [deployer] = await ethers.getSigners();
+    console.log("Deploying contracts with the account:", deployer.address);
+    console.log("Account balance:", (await deployer.getBalance()).toString());
+
+    const AuthOracle = await ethers.getContractFactory("AuthOracle");
+    const auth = await AuthOracle.attach(publicConfig[network]);
+    const validator = await ethers.Wallet.fromMnemonic(privateConfig.mnemonic);
+    await auth.addAddress(validator.address);
+}
+
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
