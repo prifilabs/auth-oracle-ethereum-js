@@ -19,6 +19,7 @@
   "homepage": "https://github.com/prifilabs/auth-oracle-ethereum-js#readme",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "@nomiclabs/hardhat-etherscan": "^3.1.7",
     "@types/node": "^18.14.6",
     "dotenv": "^16.0.3",
     "hardhat": "^2.13.0",
