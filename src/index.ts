@@ -137,13 +137,15 @@ export async function createCredentials(config:CreateCredentialsConfig, request:
       let validator = Wallet.fromMnemonic(config.mnemonic);
       let signer = await validator.getAddress();
       let sig = await signData(validator, ['address', 'address', 'bytes32', 'bytes32', 'uint'], [sender, signer, factor, token, timestamp]);
-      let credentials = {sender, signer, factor, token, timestamp, signature: sig};
+      let credentials = {sender, signer, factor, token, timestamp, signature: btoa(sig)};
       let encodedCredentials = btoa(JSON.stringify(credentials));
       return encodedCredentials;
 }
 
 export function decodeCredentials(encodedCredentials:string){
-    return JSON.parse(atob(encodedCredentials));
+    let data = JSON.parse(atob(encodedCredentials));
+    data.signature = atob(data.signature);
+    return data;
 };
 
 export async function createSecrets (){
