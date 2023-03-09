@@ -5,9 +5,8 @@ contract AuthOracle {
 
     address public owner; 
     mapping(address => bool) public isValid;
-    mapping(address => uint) public isRevoked;
     
-    constructor() {
+    constructor() public {
         owner = msg.sender;
     }
     
@@ -18,6 +17,6 @@ contract AuthOracle {
     
     function revokeAddress(address signer) public{
         require(msg.sender == owner);
-        isRevoked[signer] = block.timestamp;
+        isValid[signer] = false;
     }
 }

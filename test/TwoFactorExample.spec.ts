@@ -10,10 +10,9 @@ describe("Two-Factor Example", function () {
     const factor = "email";
     const handle = "alice@example.com";
 
-    async function credentialsRound(config, sender, factor, handle){
-        const request = await createRequest(sender, factor, handle);
-        let encodedCredentials = await createCredentials(config, request);
-        return decodeCredentials(encodedCredentials);
+    async function credentialsRound(config, sender, factor, handle, timestamp){
+        const request = await createRequest(sender, factor, handle, timestamp);
+        return await createCredentials(config, request);
     }
   
     async function deployAuthOracleFixture() {
@@ -83,8 +82,8 @@ describe("Two-Factor Example", function () {
       
       it("Should not allow Alice to withdraw with expired credentials", async function () {
           const { holder, backendConfig, contractConfig, alice } = await loadFixture(deployAuthOracleFixture);
-          const time = Math.floor(new Date().getTime() / 1000) - 60; 
-          const credentials = await credentialsRound({...backendConfig, time}, alice, factor, handle);
+          const old = Math.floor(new Date().getTime() / 1000) - 60; 
+          const credentials = await credentialsRound(backendConfig, alice, factor, handle, old);
           await expect(holder.connect(alice).withdraw(credentials, withdraw)).to.be.reverted;
           expect(await ethers.provider.getBalance(holder.address)).to.equal(contractConfig.balance);
       });

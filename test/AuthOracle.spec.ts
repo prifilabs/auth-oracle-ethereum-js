@@ -42,17 +42,15 @@ describe("Auth Oracle", function () {
     it("Should allow owner to revoke an address", async function () {
       const { contract, owner, validator } = await loadFixture(deployAuthOracleFixture);
       await contract.connect(owner).addAddress(validator.address);
-      expect(await contract.isRevoked(validator.address)).to.equal(0);
       await contract.connect(owner).revokeAddress(validator.address);
-      expect(await contract.isRevoked(validator.address)).to.be.above(0); 
+      expect(await contract.isValid(validator.address)).to.be.false;
     });
 
     it("Should not allow mallory to revoke an address", async function () {
         const { contract, owner, mallory, validator } = await loadFixture(deployAuthOracleFixture);
         await contract.connect(owner).addAddress(validator.address);
-        expect(await contract.isRevoked(validator.address)).to.equal(0);
         await expect(contract.connect(mallory).revokeAddress(validator.address)).to.be.reverted;
-        expect(await contract.isRevoked(validator.address)).to.equal(0);
+        expect(await contract.isValid(validator.address)).to.be.true;
     });
 
   });
